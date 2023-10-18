@@ -42,7 +42,7 @@ void  setup()
 void loop(){
 
    DateTime now;
-   dataFile = SD.open("datab.txt", FILE_WRITE);
+   dataFile = SD.open("dataxx.txt", FILE_WRITE);
 
   if (dataFile) {
     // Write the sensor value to the file
@@ -65,29 +65,13 @@ temp= dht.readTemperature();
   dataFile.print(now.minute(), DEC);
   dataFile.print(":");
   dataFile.print(now.second(), DEC);
-  dataFile.print (" ");
-    dataFile.print(temp);
-     dataFile.print (",");
+  dataFile.print (",");
   dataFile.print(hum);
-   dataFile.print (",--");
- 
-
-
-Serial.print("Humidity: ");
-    Serial.print(hum);
-    Serial.print(" %, Temp: ");
-    Serial.print(temp);
-    Serial.println(" Celsius");
-    dataFile.close();
-    Serial.println("Data written to the file.");
-}
-   
+  dataFile.print (",");
+  dataFile.print(temp);
+} 
   else {
     Serial.println("Error opening the file.");
   }
-//delay (2000);
-const unsigned long SECOND = 1000;
-const unsigned long HOUR = 3600*SECOND;
-delay(1*HOUR);
-
+delay (2000);
   }
